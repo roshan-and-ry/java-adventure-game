@@ -16,7 +16,7 @@ public class ZombieLand {
         // HERO VARIABLES
         int heroHealth = 100;
         int baseballBat = 25;
-        int doubleTapDamage = 75;
+        int doubleTapDamage = 50;
         int whiteClaw = 1;
         int whiteClawAmount = 25;
 
@@ -73,10 +73,21 @@ public class ZombieLand {
                     String input = scanner.nextLine();
 
                     if (input.equals("1")){
-                        int damageDone = enemyHealth;
+                        int damageDone = doubleTapDamage;
+                        int damageTaken = enemyAttackDamage;
                         enemyHealth -= damageDone;
-                        System.out.println("You killed em!");
-                        System.out.println(enemyHealth);
+                        heroHealth -= damageTaken;
+                        System.out.println("You doubletapped the zombie");
+                        if (heroHealth < 1) {
+                            System.out.println("The Zombie killed you!");
+                            System.out.println("----------------------");
+                            System.out.println("-------RESTART--------");
+                            System.out.println("----------------------");
+                            heroHealth = 100;
+                            break;
+                        }
+
+
                     } else if (input.equals("2")) {
 
                         int damageDone = baseballBat;
@@ -86,6 +97,10 @@ public class ZombieLand {
 
                         if (heroHealth < 1) {
                             System.out.println("The Zombie killed you!");
+                            System.out.println("----------------------");
+                            System.out.println("-------RESTART--------");
+                            System.out.println("----------------------");
+                            heroHealth = 100;
                             break;
                         }
 
