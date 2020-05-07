@@ -7,7 +7,7 @@ public class ZombieLand {
 
         // ENEMIES
 
-        String[] enemies = { "Clown Zombie", "Zombie", "Carney Zombie", "Huge Zombie"};
+        String[] enemies = { "Clown Zombie", "Bill Murray Zombie", "Carney Zombie", "Huge Zombie" };
 
         // ENEMY VARIABLES
         int maxEnemyHealth = 75;
@@ -15,9 +15,10 @@ public class ZombieLand {
 
         // HERO VARIABLES
         int heroHealth = 100;
-        int attackDamage = 50;
-        int healthBoosts = 2;
-        int healthBoostAmount = 10;
+        int baseballBat = 25;
+        int doubleTapDamage = 50;
+        int whiteClaw = 1;
+        int whiteClawAmount = 25;
 
         boolean gameRunning = true;
 
@@ -43,22 +44,82 @@ public class ZombieLand {
                 character = scanner.nextLine();
             }
             if(character.toLowerCase().charAt(0) == 'c'){
-                System.out.println("Columbus, you are entering Pacific Playland with " + heroHealth + " health points");
+                System.out.println("Columbus, you are entering Pacific Playland");
             }
             if(character.toLowerCase().charAt(0) == 't'){
-                System.out.println("Tallahassee, you are entering Pacific Playland with " + heroHealth + " health points");
+                System.out.println("Tallahassee, you are entering Pacific Playland");
             }
             if(character.toLowerCase().charAt(0) == 'w'){
-                System.out.println("Wichita, you are entering Pacific Playland with " + heroHealth + " health points");
+                System.out.println("Wichita, you are entering Pacific Playland");
             }
 
-//             GAME
-//            while(gameRunning){
-//                System.out.println("");
-//                int enemyHealth = random.nextInt(maxEnemyHealth);
-//
-//
-//            }
+            GAME:
+            while(gameRunning){
+                System.out.println("Watch out for Zombies!!");
+                int enemyHealth = random.nextInt(maxEnemyHealth);
+                String enemy = enemies[random.nextInt(enemies.length)];
+                System.out.println(enemy + " has appeared!");
+
+                while(enemyHealth > 0) {
+                    System.out.println("You have " + heroHealth + " health points!");
+                    System.out.println("You have " + whiteClaw + " White Claws!");
+                    System.out.println(enemy + " has " + enemyHealth + " health points!");
+                    System.out.println("What would you like to do?");
+                    System.out.println("1. to use Double Tap");
+                    System.out.println("2. to use Baseball Bat");
+                    System.out.println("3. to boost with White Claw");
+                    System.out.println("4. to RUN!");
+
+                    String input = scanner.nextLine();
+
+                    if (input.equals("1")){
+                        int damageDone = doubleTapDamage;
+                        int damageTaken = enemyAttackDamage;
+                        enemyHealth -= damageDone;
+                        heroHealth -= damageTaken;
+                        System.out.println("You doubletapped the zombie");
+                        if (heroHealth < 1) {
+                            System.out.println("The Zombie killed you!");
+                            System.out.println("----------------------");
+                            System.out.println("-------RESTART--------");
+                            System.out.println("----------------------");
+                            heroHealth = 100;
+                            break;
+                        }
+
+
+                    } else if (input.equals("2")) {
+
+                        int damageDone = baseballBat;
+                        int damageTaken = enemyAttackDamage;
+                        enemyHealth -= damageDone;
+                        heroHealth -= damageTaken;
+
+                        if (heroHealth < 1) {
+                            System.out.println("The Zombie killed you!");
+                            System.out.println("----------------------");
+                            System.out.println("-------RESTART--------");
+                            System.out.println("----------------------");
+                            heroHealth = 100;
+                            break;
+                        }
+
+                    } else if (input.equals("3")) {
+                        heroHealth += whiteClawAmount;
+                        whiteClaw -= 1;
+                        System.out.println("The White Claw gave you 25 health points! You now have " + heroHealth + " health points and you need to go to the store to get more White Claws!");
+
+                    } else if (input.equals("4")){
+                        System.out.println("Really?, you're just going to run away like that?");
+                        continue GAME;
+                    } else {
+                        System.out.println("Invalid input!");
+                    }
+
+                }
+
+
+            }
 
 
         } else {
