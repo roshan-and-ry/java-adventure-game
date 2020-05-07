@@ -32,15 +32,19 @@ public class ZombieLand {
 
         if (userAnswer.equalsIgnoreCase("yes")) {
             System.out.println("Lets start the adventure");
+            System.out.println("------------------------");
             System.out.println("Choose your character: ");
+            System.out.println("------------------------");
             System.out.println("'c' for Columbus");
             System.out.println("'t' for Tallahassee");
             System.out.println("'w' for Wichita");
+            System.out.println("------------------------");
             String character = scanner.nextLine();
             while(character.toLowerCase().charAt(0) != 'c' && character.toLowerCase().charAt(0) != 't' && character.toLowerCase().charAt(0) != 'w') {
                 System.out.println("'c' for Columbus");
                 System.out.println("'t' for Tallahassee");
                 System.out.println("'w' for Wichita");
+                System.out.println("------------------------");
                 character = scanner.nextLine();
             }
             if(character.toLowerCase().charAt(0) == 'c'){
@@ -56,14 +60,18 @@ public class ZombieLand {
             GAME:
             while(gameRunning){
                 System.out.println("Watch out for Zombies!!");
+                System.out.println("------------------------");
                 int enemyHealth = random.nextInt(maxEnemyHealth);
                 String enemy = enemies[random.nextInt(enemies.length)];
                 System.out.println(enemy + " has appeared!");
 
                 while(enemyHealth > 0) {
+                    System.out.println("----------------------------------------");
                     System.out.println("You have " + heroHealth + " health points!");
                     System.out.println("You have " + whiteClaw + " White Claws!");
+                    System.out.println("----------------------------------------");
                     System.out.println(enemy + " has " + enemyHealth + " health points!");
+                    System.out.println("----------------------------------------");
                     System.out.println("What would you like to do?");
                     System.out.println("1. to use Double Tap");
                     System.out.println("2. to use Baseball Bat");
@@ -112,6 +120,7 @@ public class ZombieLand {
                     } else if (input.equals("4")){
                         System.out.println("Really?, you're just going to run away like that?");
                         continue GAME;
+
                     } else {
                         System.out.println("Invalid input!");
                     }
