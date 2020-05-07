@@ -60,17 +60,39 @@ public class ZombieLand {
             GAME:
             while(gameRunning){
                 System.out.println("Watch out for Zombies!!");
+                System.out.println("     ________     ");
+                System.out.println("   (  O   o   )");
+                System.out.println("  /     0     \\");
+                System.out.println(" /  / |   | \\  \\");
+                System.out.println("///\\  |   |  /\\\\\\");
+                System.out.println("       |  |         ");
+                System.out.println("      /   \\        ");
+                System.out.println("     |     |       ");
+                System.out.println("   --      --      ");
                 System.out.println("------------------------");
                 int enemyHealth = random.nextInt(maxEnemyHealth);
                 String enemy = enemies[random.nextInt(enemies.length)];
                 System.out.println(enemy + " has appeared!");
+                System.out.println("[¬º-°]¬");
 
                 while(enemyHealth > 0) {
                     System.out.println("----------------------------------------");
-                    System.out.println("You have " + heroHealth + " health points!");
-                    System.out.println("You have " + whiteClaw + " White Claws!");
-                    System.out.println("----------------------------------------");
-                    System.out.println(enemy + " has " + enemyHealth + " health points!");
+                    System.out.println("Would you like to see your health stats? [yes/no]");
+                    String statsInput = scanner.nextLine();
+
+                        if (statsInput.equalsIgnoreCase("yes")) {
+                            System.out.println("You have " + heroHealth + " health points!");
+                            System.out.println("You have " + whiteClaw + " White Claws!");
+                            System.out.println("             <\"\"  -   \"\">                ");
+                            System.out.println("             |\"\"     \"\"|                ");
+                            System.out.println("             |  WHITE  |                ");
+                            System.out.println("             |  CLAW   |                ");
+                            System.out.println("             |         |                ");
+                            System.out.println("             (         )                ");
+                            System.out.println("             \"\"  __   \"\"                ");
+                            System.out.println("----------------------------------------");
+                            System.out.println(enemy + " has " + enemyHealth + " health points!");
+                        }
                     System.out.println("----------------------------------------");
                     System.out.println("What would you like to do?");
                     System.out.println("1. to use Double Tap");
