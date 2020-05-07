@@ -53,12 +53,12 @@ public class ZombieLand {
             }
 
 //             GAME
-            while(gameRunning){
-                System.out.println("");
-                int enemyHealth = random.nextInt(maxEnemyHealth);
-
-
-            }
+//            while(gameRunning){
+//                System.out.println("");
+//                int enemyHealth = random.nextInt(maxEnemyHealth);
+//
+//
+//            }
 
 
         } else {
